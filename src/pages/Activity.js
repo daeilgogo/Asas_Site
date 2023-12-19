@@ -5,7 +5,7 @@ import { UserAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Members } from '../Components/members';
 import { IoIosArrowBack,IoIosArrowForward,IoLogoFacebook, IoMdSend } from 'react-icons/io';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence} from 'framer-motion';
 import { CiFacebook,CiInstagram } from "react-icons/ci";
 import Bg from '../asset/ASAS1.jpg'
 import SM from '../asset/sunmoon.jpg'
@@ -20,12 +20,53 @@ import '../custum.css'
 import {firebase} from '../config';
 import { data } from 'autoprefixer';
 import { Player } from 'video-react';
+import { wrap } from 'framer-motion';
+
+/////
+
+
+
+const variants = {
+  enter: (direction) => {
+    return {
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    };
+  },
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1
+  },
+  exit: (direction) => {
+    return {
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    };
+  }
+};
+
+//////
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset, velocity) => {
+  return Math.abs(offset) * velocity;
+};
+
 
 
 
 function Activity() {
 
     const navigate= useNavigate()
+    const [[page, direction], setPage] = useState([0, 0]);
+
+
+    const imageIndex = wrap(0, Members.length, page);
+
+    const paginate = (newDirection) => {
+      setPage([page + newDirection, newDirection]);
+    };
     //initialize UserAuth
 
    const {logOut, user}=UserAuth()
