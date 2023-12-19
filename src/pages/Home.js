@@ -114,7 +114,7 @@ useEffect(()=>{
                 variants={{
                    hidden: { opacity: 0, y:-5},
                    visible: { opacity: 1, y: 0 }
-                }} className='w-[200px] flex flex-col bg-white fixed    top-[65px] p-4 left-[58%] gap-2 font-bold ' 
+                }} className='w-[200px] flex flex-col bg-white fixed    top-[65px] p-4 left-[49%] gap-2 font-bold ' 
                 onMouseEnter={()=>{setSercives(true)}}
                 onMouseLeave={()=>{setSercives(false)}}>
                 <button  onClick={()=>{navigate('/borrow')}}  className='text-left  hover:text-green-700 '>Get Some finicial help</button>

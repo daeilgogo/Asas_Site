@@ -285,7 +285,7 @@ return () => videos(); // Unsubscribe from the snapshot listener when the compon
                   
                 }} 
            
-                className='w-[200px] flex flex-col bg-white fixed    top-[65px] p-4 left-[58%] gap-2 font-bold ' 
+                className='w-[200px] flex flex-col bg-white fixed    top-[65px] p-4 left-[49%] gap-2 font-bold ' 
                 onMouseEnter={()=>{setSercives(true)}}
                 onMouseLeave={()=>{setSercives(false)}} >
                 <button className='text-left  hover:text-green-700  ' onClick={()=>{navigate('/borrow')}}>Get Some finicial help</button>
