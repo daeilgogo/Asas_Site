@@ -1,0 +1,8 @@
+
+  
+  .custom-textarea:focus {
+    outline: none; /* Supprime la bordure au focus */
+    border: none; /* Supprime la bordure au focus */
+    box-shadow: none; /* Supprime toute ombre de boîte au focus */
+  }
+  
